@@ -18,9 +18,9 @@ const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
 const handleWin = (letter) => {
   gameIsLive = false;
   if (letter === 'x') {
-    statusDiv.innerHTML = `${letterToSymbol(letter)} has won!`;
+    statusDiv.innerHTML = `${letterToSymbol(letter)} won!`;
   } else {
-    statusDiv.innerHTML = `<span>${letterToSymbol(letter)} has won!</span>`;
+    statusDiv.innerHTML = `<span>${letterToSymbol(letter)} won!</span>`;
   }
 };
 
@@ -78,13 +78,13 @@ const checkGameStatus = () => {
     cellDivs[6].classList.add('won');
   } else if (topLeft && topMiddle && topRight && middleLeft && middleMiddle && middleRight && bottomLeft && bottomMiddle && bottomRight) {
     gameIsLive = false;
-    statusDiv.innerHTML = 'Game is tied!';
+    statusDiv.innerHTML = 'Tie!';
   } else {
     xIsNext = !xIsNext;
     if (xIsNext) {
-      statusDiv.innerHTML = `${xSymbol} is next`;
+      statusDiv.innerHTML = `${xSymbol}'s Turn`;
     } else {
-      statusDiv.innerHTML = `<span>${oSymbol} is next</span>`;
+      statusDiv.innerHTML = `<span>${oSymbol}'s Turn</span>`;
     }
   }
 };
@@ -93,7 +93,7 @@ const checkGameStatus = () => {
 // event Handlers
 const handleReset = () => {
   xIsNext = true;
-  statusDiv.innerHTML = `${xSymbol} is next`;
+  statusDiv.innerHTML = `${xSymbol}'s Turn`;
   for (const cellDiv of cellDivs) {
     cellDiv.classList.remove('x');
     cellDiv.classList.remove('o');
